@@ -1,0 +1,30 @@
+.person-icon {
+    border: solid black;
+    border-radius: 7px;
+    font-size: 135px;
+    float: left;
+    margin: 16px
+}
+
+.table-cell {
+    display: table-cell;
+    padding: 4px;
+}
+
+.table {
+    display: table;
+    width: 100%;
+    font-size: 130%;
+    margin: 16px;
+}
+
+.message-icon {
+    font-size: 60px; 
+    margin: 16px;
+    float: right; 
+}
+
+.message-btn {
+    font-size:40px;
+    margin:16px;
+}

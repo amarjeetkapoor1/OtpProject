@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <h1 class="col">
+      Contacts
+      <i class="material-icons">
+        contacts
+      </i>
+    </h1>
+  </div>
+  <div class="row" *ngIf="errorMsg === ''; else error">
+    <div class="col">
+      <div class="list-group" >
+        <a href="#" class="list-group-item list-group-item-action" 
+          (click) = "onSelect(i)" routerLink="contactInfo"
+          *ngFor="let contact of contacts; let i = index">
+          {{ contact.firstName}} {{contact.lastName}}
+          <i style="float: right;" class="material-icons">
+            message
+          </i>
+        </a>    
+        </div>
+    </div>
+  </div>
+  <ng-template #error>
+    <div class="col row">
+      {{errorMsg}}
+      <a href="#" style="float: right;" class="material-icons" 
+        (click)="retry()">
+        refresh
+      </a>
+    </div>
+  </ng-template>
+  
+</div>

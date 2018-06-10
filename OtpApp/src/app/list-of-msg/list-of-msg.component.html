@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="row">
+      <h1 class="col">
+        List of Messages
+        <i class="material-icons">
+          list
+        </i>
+      </h1>
+    </div>
+    <div class="row" *ngIf="errorMsg === ''; else error">
+      <div class="col">
+        <ul class="list-group" >
+            <li  class="list-group-item list-group-item-action">
+            <div class="row">
+                <div class="col-md">
+                    <b>Name of Person</b>
+                </div>
+                <div class="col-md-2">
+                  <b>Phone Number</b>
+                </div>
+                <div class="col-md-2">
+                  <b>OTP Send</b>
+                </div>
+                <div class="col-md-2">
+                  <b>Date</b>
+                </div>
+                <div class="col-md-2">
+                  <b>Time</b>
+                </div>
+              </div>
+          </li> 
+          <li  class="list-group-item list-group-item-action" 
+            *ngFor="let msg of listOfMsg">
+            <div class="row">
+                <div class="col-md">
+                    {{ msg.name}}
+                </div>
+                <div class="col-md-2">
+                    {{ msg.to}}
+                </div>
+                <div class="col-md-2">
+                    {{ msg.otp}}
+                </div>
+                <div class="col-md-2">
+                    {{ msg.date}}
+                </div>
+                <div class="col-md-2">
+                    {{ msg.time}}
+                </div>
+              </div>
+          </li>    
+        </ul>
+      </div>
+    </div>
+    <ng-template #error>
+      <div class="col row">
+        {{errorMsg}}
+        <i style="float: right; font-size: 30px;" class="btn material-icons" (click)="retry()">
+          refresh
+        </i>
+      </div>
+    </ng-template>    
+  </div> 

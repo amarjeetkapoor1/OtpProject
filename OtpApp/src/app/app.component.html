@@ -1,0 +1,13 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <span class="navbar-brand" >OTP App</span>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href="#" routerLink="" routerLinkActive= "active" [routerLinkActiveOptions] = "{exact:true}" >List  of  contacts</a>
+      <a class="nav-item nav-link" routerLink="listOfMsg" [routerLinkActiveOptions] = "{exact:true}" routerLinkActive= "active">List  of  messages  sent </a>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>

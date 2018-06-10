@@ -1,0 +1,64 @@
+<div class="container" *ngIf = "!composeMessage">
+  <div class="row">
+    <h1 class="col">
+      Contact Info
+      <i class="material-icons">info</i>
+    </h1>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <i class="material-icons person-icon">person</i>
+    </div>
+    <div class="col">
+      <div class="table">
+        <div style="display: table-row">
+          <div class= "table-cell">
+            <b>FirstName:</b>
+          </div>
+          <div class= "table-cell">
+            {{contact.firstName}}
+          </div>
+        </div>
+        <div style="display: table-row">
+          <div class= "table-cell">
+            <b>LastName:</b>
+          </div>
+          <div class= "table-cell">
+            {{contact.lastName}}
+          </div>
+        </div>
+        <div style="display: table-row">
+          <div class= "table-cell">
+            <b>Phone Number: </b>
+          </div>
+          <div class= "table-cell">
+            {{contact.number}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="row">
+      </div>
+      <i class="material-icons btn message-icon" (click) = "composeMessage = true ">message
+      </i>
+    </div>
+  </div>
+
+</div>
+
+<div class="container" *ngIf = "composeMessage">
+    <div class="row">
+      <h1 class="col">
+        Message To Be Sent
+      </h1>
+    </div>
+  <div class="row">
+    <input class="col"  [(ngModel)] ="msg" />
+    <div class="col">
+        <button class="btn material-icons message-btn" [disabled]= "msgSent"(click) = "sendMsg()"> send</button>
+        <button class="btn material-icons message-btn"  (click) = "composeMessage = false">cancel</button>
+    </div>
+  </div>
+</div>
