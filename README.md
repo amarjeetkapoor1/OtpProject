@@ -34,7 +34,7 @@ Installation:
     * npm intall
     * vim /path/to/project/OtpApp/src/environments/environment.ts
     * Add Base url of backend
-    * ng serve
+    * npm start
     * Dependency: npm
 
 * Backend:
@@ -63,4 +63,3 @@ Installation:
 
     * python manage.py runserver
     * Dependency: pip3, python3, virtualenv
-
