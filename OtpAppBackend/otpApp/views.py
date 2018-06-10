@@ -27,8 +27,6 @@ def sendMsg(request):
                         to = data['number']
                     )
         response = { "status": message.status, "error": message.error_message}
-        print(message.error_message)
-        print(data['number'])
     except(KeyError, JSONDecodeError):
         response = { 'status': 'failed', 'error': 'Incorrect params'}
     except TwilioRestException:
