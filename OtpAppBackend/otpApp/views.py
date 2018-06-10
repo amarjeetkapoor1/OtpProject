@@ -17,7 +17,7 @@ def sendMsg(request):
     response = {}
     try:
         #data Will contain msg to be send and number.
-        data = json.loads(request.body)
+        data = json.loads(str(request.body, 'utf-8'))
         account_sid = settings.ACCOUNT_SID
         auth_token = settings.AUTH_TOKEN
         client = Client(account_sid, auth_token)
