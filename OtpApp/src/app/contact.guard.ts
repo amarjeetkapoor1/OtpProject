@@ -1,13 +1,14 @@
-import { Injectable } from "@angular/core";
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from "@angular/router";
-import { ContactsService, Contact } from "./contact-list/shared/contacts.service";
+import { Injectable } from '@angular/core';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
+import { ContactsService, Contact } from './contact-list/shared/contacts.service';
 
 @Injectable()
 export  class ContactGuard implements CanActivate {
 
     Contacts: Contact[];
 
-    constructor(private contactsService: ContactsService) {
+    constructor(private contactsService: ContactsService,
+        private router: Router) {
         this.contactsService.get.subscribe(
             req => {
                 this.Contacts = req;
@@ -16,10 +17,14 @@ export  class ContactGuard implements CanActivate {
     }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (this.Contacts.length > route.queryParams['id']) {
-        return true;
-    } else {
-        return false;
-    }
+    return new Promise<boolean>((resolve, reject) => {
+        if (this.Contacts !== undefined &&
+            this.Contacts.length > route.queryParams['id']) {
+            return  resolve(true);
+        } else {
+            this.router.navigate(['']);
+            return resolve(false);
+        }
+    });
   }
 }

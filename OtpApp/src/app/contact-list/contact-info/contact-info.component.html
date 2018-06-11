@@ -55,10 +55,18 @@
       </h1>
     </div>
   <div class="row">
-    <input class="col"  [(ngModel)] ="msg" />
     <div class="col">
-        <button class="btn material-icons message-btn" [disabled]= "msgSent"(click) = "sendMsg()"> send</button>
-        <button class="btn material-icons message-btn"  (click) = "composeMessage = false">cancel</button>
+        <input class="form-control" [(ngModel)] ="msg" />
+    </div>
+  </div>
+  <div>
+    <div class="col">
+      <button class="btn message-btn" (click) = "sendMsg()" [disabled]= "msgSent">
+          <i  class="material-icons">send</i>
+      </button>
+      <button class="btn message-btn" (click) = "composeMessage = false">
+        <i class="material-icons">cancel</i>
+      </button>
     </div>
   </div>
 </div>
